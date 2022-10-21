@@ -3,7 +3,7 @@ import cakeImg from '../assets/img/cake.jpg'
 
 export function createCake() {
     const cakeList = [] as IFood[];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 20; i++) {
         const cake = {
             image: {
                 alt: 'cake',
