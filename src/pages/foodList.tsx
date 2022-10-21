@@ -13,10 +13,6 @@ const FoodList = () => {
     const navigate = useNavigate();
     const [selectedFoodList] = useAtom(selectedFoodListAtom)
 
-    useEffect(()=>{
-        console.log(selectedFoodList)
-    })
-
     const goShoppingCart = () => {
         navigate('/order')
     }
