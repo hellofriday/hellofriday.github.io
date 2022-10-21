@@ -2,7 +2,7 @@ import styles from './food.module.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {IFood} from "../data/IFood";
 import {InputNum} from "./inputNum";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {selectedFoodListAtom} from "../pages/foodList";
 import {useAtom} from "jotai";
 import {ISelectedFood} from "../data/ISelectedFood";
@@ -13,6 +13,7 @@ type Props = {
 export function Food({detail}: Props) {
     const [currentBoughtNum, setCurrentBoughtNum] = useState(0)
     const [selectedFoodList, setSelectedFoodList] = useAtom(selectedFoodListAtom)
+
     const onValueChange = (value: number) => {
         setCurrentBoughtNum(value)
 
@@ -38,6 +39,13 @@ export function Food({detail}: Props) {
         }
     }
 
+    useEffect(()=>{
+        const item = selectedFoodList.find(item => item.id === detail.id)
+        if (item) {
+            setCurrentBoughtNum(item.num)
+        }
+    }, [])
+
     const buy = () => {
         setCurrentBoughtNum(1)
     }
@@ -56,7 +64,7 @@ export function Food({detail}: Props) {
         </div>
         <div className={styles.gap}/>
         <>
-            { currentBoughtNum > 0 ? <InputNum min={0} onValueChange={onValueChange}/> : <div className={styles.add} onClick={buy}/>}
+            { currentBoughtNum > 0 ? <InputNum min={0} onValueChange={onValueChange} defaultValue={currentBoughtNum}/> : <div className={styles.add} onClick={buy}/>}
         </>
     </div>
 }
