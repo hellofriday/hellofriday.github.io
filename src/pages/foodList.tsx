@@ -4,11 +4,13 @@ import {createCake} from "../data/AllFood";
 import {ISelectedFood} from "../data/ISelectedFood";
 import {atom, useAtom} from "jotai";
 import {useEffect} from "react";
+import {Link, useNavigate} from "react-router-dom";
 
-const cakeList = createCake()
+export const cakeList = createCake()
 export const selectedFoodListAtom = atom([] as ISelectedFood[])
 
 const FoodList = () => {
+    const navigate = useNavigate();
     const [selectedFoodList] = useAtom(selectedFoodListAtom)
 
     useEffect(()=>{
@@ -16,7 +18,7 @@ const FoodList = () => {
     })
 
     const goShoppingCart = () => {
-        console.log(selectedFoodList)
+        navigate('/order')
     }
   return (
         <div className={styles.container}>

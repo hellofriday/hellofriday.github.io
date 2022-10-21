@@ -1,5 +1,5 @@
 import {IFood} from "./IFood";
 
-export interface ISelectedFood extends IFood{
+export interface IOrderItem extends IFood{
     num: number
 }

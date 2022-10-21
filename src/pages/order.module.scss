@@ -12,21 +12,28 @@
     line-height: 26px;
     color: #222;
     font-weight: bold;
-    margin-bottom: 50px;
   }
-  .btn {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    border-radius: 5px;
-    width: 120px;
+  .title-area {
+    margin-left: 100px;
+    display: flex;
+    flex: 1;
     height: 40px;
     font-size: 14px;
-    background-color: #F40;
-    text-align: center;
-    line-height: 40px;
-    color: #fff;
-    cursor: pointer;
+    div {
+      width: 20%;
+      &:first-child{
+        margin-left: 20px;
+      }
+    }
+  }
+  .total {
+    position: relative;
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 100px;
+    .price {
+
+    }
   }
 }

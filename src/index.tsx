@@ -11,11 +11,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-      <BrowserRouter>
           <JotaiProvider>
+              <BrowserRouter>
               <App />
+              </BrowserRouter>
           </JotaiProvider>
-      </BrowserRouter>
   </React.StrictMode>
 );
 

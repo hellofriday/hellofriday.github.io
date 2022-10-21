@@ -5,6 +5,7 @@ import {InputNum} from "./inputNum";
 import {useState} from "react";
 import {selectedFoodListAtom} from "../pages/foodList";
 import {useAtom} from "jotai";
+import {ISelectedFood} from "../data/ISelectedFood";
 
 type Props = {
     detail: IFood
@@ -16,8 +17,8 @@ export function Food({detail}: Props) {
         setCurrentBoughtNum(value)
 
         const {id} = detail
-        const boughtItem = {foodId: id, num: value}
-        const index = selectedFoodList.findIndex(item => item.foodId === id)
+        const boughtItem = {...detail, num: value} as ISelectedFood
+        const index = selectedFoodList.findIndex(item => item.id === id)
 
         if (value === 0) {
             // remove item from list when value is zero
