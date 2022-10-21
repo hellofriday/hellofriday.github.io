@@ -1,5 +1,5 @@
-import {IFood} from "./IFood";
+import { IFood } from './IFood';
 
-export interface ISelectedFood extends IFood{
-    num: number
+export interface ISelectedFood extends IFood {
+    num: number;
 }

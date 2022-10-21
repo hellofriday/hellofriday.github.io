@@ -1,10 +1,10 @@
 export interface IFoodIcon {
-    alt: string
-    url: string
+    alt: string;
+    url: string;
 }
 export interface IFood {
-    id: string
-    image: IFoodIcon
-    name: string
-    price: number
+    id: string;
+    image: IFoodIcon;
+    name: string;
+    price: number;
 }
