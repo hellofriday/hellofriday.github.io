@@ -4,7 +4,7 @@ import {createCake} from "../data/AllFood";
 import {ISelectedFood} from "../data/ISelectedFood";
 import {atom, useAtom} from "jotai";
 import {useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export const cakeList = createCake()
 export const selectedFoodListAtom = atom([] as ISelectedFood[])

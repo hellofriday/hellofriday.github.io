@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {selectedFoodListAtom} from "../pages/foodList";
 import {useAtom} from "jotai";
 import {ISelectedFood} from "../data/ISelectedFood";
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 type Props = {
     detail: IFood
@@ -54,6 +55,7 @@ export function Food({detail}: Props) {
         <LazyLoadImage
             className={styles.img}
             alt={detail.image.alt}
+            effect="opacity"
             src={detail.image.url} />
         <div className={styles.info}>
             <div className={styles.name}>{detail.name}</div>
