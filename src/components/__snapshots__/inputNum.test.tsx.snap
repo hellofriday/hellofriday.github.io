@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputNum minus button should disable when current value is min value 1`] = `
+<div
+  class="input-number"
+>
+  <div
+    class="btn disable minus-btn"
+  />
+  <input
+    class="input"
+    type="text"
+    value="0"
+  />
+  <div
+    class="btn false plus-btn"
+  />
+</div>
+`;
+
+exports[`InputNum plus button should disable when current value is max value 1`] = `
+<div
+  class="input-number"
+>
+  <div
+    class="btn false minus-btn"
+  />
+  <input
+    class="input"
+    type="text"
+    value="2"
+  />
+  <div
+    class="btn disable plus-btn"
+  />
+</div>
+`;

@@ -9,6 +9,11 @@ type Props = {
 };
 export function InputNum({ min = 1, max = 999, defaultValue = 1, onValueChange }: Props) {
     const [inputValue, setInputValue] = useState(defaultValue);
+
+    if (!(defaultValue >= min && defaultValue <= max)) {
+        throw Error('Please set valid defaultValue')
+    }
+
     const onChange = (e: any) => {
         const value = e.target.value;
         const v1 = value.replace(/[^\d]/g, '');
