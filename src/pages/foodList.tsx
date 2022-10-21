@@ -22,7 +22,10 @@ const FoodList = () => {
         <div className={styles.container}>
             <div className={styles.title}>请选择以下餐品</div>
             {cakeList.map(item => <Food detail={item} key={item.id}/>)}
-            <div className={styles.btn} onClick={goShoppingCart}>去结账</div>
+            <>{
+                selectedFoodList.length > 0 && <div className={styles.btn} onClick={goShoppingCart}>去结账</div>
+            }
+            </>
         </div>
   )
 }

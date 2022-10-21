@@ -18,12 +18,22 @@ export function Food({detail}: Props) {
         const {id} = detail
         const boughtItem = {foodId: id, num: value}
         const index = selectedFoodList.findIndex(item => item.foodId === id)
-        if (index !== -1) {
-            const newArr = [...selectedFoodList]
-            newArr[index] = boughtItem
-            setSelectedFoodList(newArr)
+
+        if (value === 0) {
+            // remove item from list when value is zero
+            if (index !== -1) {
+                const newArr = [...selectedFoodList]
+                newArr.splice(index, 1)
+                setSelectedFoodList(newArr)
+            }
         } else {
-            setSelectedFoodList([...selectedFoodList, boughtItem])
+            if (index !== -1) {
+                const newArr = [...selectedFoodList]
+                newArr[index] = boughtItem
+                setSelectedFoodList(newArr)
+            } else {
+                setSelectedFoodList([...selectedFoodList, boughtItem])
+            }
         }
     }
 
