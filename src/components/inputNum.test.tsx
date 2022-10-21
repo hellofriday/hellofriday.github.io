@@ -43,6 +43,26 @@ describe("InputNum", () => {
         expect(asFragment().firstChild).toMatchSnapshot();
     });
 
+    it('input value should be number', () => {
+        const onChange = jest.fn();
+        const { container } = render(<InputNum min={10} max={20} defaultValue={12} onValueChange={onChange} />);
+        const input = container.querySelector('.input')! as HTMLInputElement
+        fireEvent.change(input, {target: {value: '123'}})
+        expect(Number.isNaN(input.value)).toBe(false)
+    });
+
+    it('input value should not great than max num or less than min num', () => {
+        const onChange = jest.fn();
+        const { container } = render(<InputNum min={10} max={20} defaultValue={12} onValueChange={onChange} />);
+        const input = container.querySelector('.input')! as HTMLInputElement
+        fireEvent.change(input, {target: {value: '23'}})
+        const v = parseInt(input.value)
+        expect(v).toBeGreaterThanOrEqual(10)
+
+        fireEvent.change(input, {target: {value: '1'}})
+        const v1 = parseInt(input.value)
+        expect(v1).toBeLessThanOrEqual(20)
+    });
 
     it('value render should not change by click plus button when current value is max value', () => {
         const onChange = jest.fn();

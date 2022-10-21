@@ -1,5 +1,5 @@
 import styles from './inputNum.module.scss';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 type Props = {
     min?: number;
@@ -7,7 +7,8 @@ type Props = {
     defaultValue?: number;
     onValueChange: (value: number) => void;
 };
-export function InputNum({ min = 1, max = 999, defaultValue = 1, onValueChange }: Props) {
+
+export function InputNum({min = 1, max = 999, defaultValue = 1, onValueChange}: Props) {
     const [inputValue, setInputValue] = useState(defaultValue);
 
     if (!(defaultValue >= min && defaultValue <= max)) {
@@ -16,15 +17,19 @@ export function InputNum({ min = 1, max = 999, defaultValue = 1, onValueChange }
 
     const onChange = (e: any) => {
         const value = e.target.value;
+
+        // only receive number
         const v1 = value.replace(/[^\d]/g, '');
-        try {
-            const v2 = parseInt(v1);
-            if (v2 >= max) {
-                return;
-            }
+        if (v1 === '') {
+            return;
+        }
+        const v2 = parseInt(v1);
+        if (v2 <= min) {
+            setInputValue(min);
+        } else if (v2 >= max) {
+            setInputValue(max);
+        } else {
             setInputValue(v2);
-        } catch (e) {
-            throw new Error('please only enter integer!');
         }
     };
 
@@ -56,7 +61,7 @@ export function InputNum({ min = 1, max = 999, defaultValue = 1, onValueChange }
                 ].join(' ')}
                 onClick={minus}
             />
-            <input type="text" className={styles['input']} onChange={onChange} value={inputValue} />
+            <input type="text" className={styles['input']} onChange={onChange} value={inputValue}/>
             <div
                 className={[
                     styles.btn,
