@@ -1,5 +1,5 @@
 import styles from './inputNum.module.scss'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 type Props = {
     min?: number
@@ -17,12 +17,15 @@ export function InputNum({min = 1, max = 999, defaultValue = 1, onValueChange}: 
             if (v2 >= max) {
                 return;
             }
-            onValueChange(v2)
             setInputValue(v2)
         } catch (e) {
             throw new Error('please only enter integer!')
         }
     }
+
+    useEffect(()=>{
+        onValueChange(inputValue)
+    }, [inputValue])
 
     const minus = () => {
         if (inputValue <= min) {

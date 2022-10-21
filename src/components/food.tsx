@@ -3,15 +3,28 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {IFood} from "../data/IFood";
 import {InputNum} from "./inputNum";
 import {useState} from "react";
+import {selectedFoodListAtom} from "../pages/foodList";
+import {useAtom} from "jotai";
 
 type Props = {
     detail: IFood
 }
 export function Food({detail}: Props) {
     const [currentBoughtNum, setCurrentBoughtNum] = useState(0)
-
+    const [selectedFoodList, setSelectedFoodList] = useAtom(selectedFoodListAtom)
     const onValueChange = (value: number) => {
         setCurrentBoughtNum(value)
+
+        const {id} = detail
+        const boughtItem = {foodId: id, num: value}
+        const index = selectedFoodList.findIndex(item => item.foodId === id)
+        if (index !== -1) {
+            const newArr = [...selectedFoodList]
+            newArr[index] = boughtItem
+            setSelectedFoodList(newArr)
+        } else {
+            setSelectedFoodList([...selectedFoodList, boughtItem])
+        }
     }
 
     const buy = () => {
@@ -32,7 +45,7 @@ export function Food({detail}: Props) {
         </div>
         <div className={styles.gap}/>
         <>
-            { currentBoughtNum > 0 ? <InputNum onValueChange={onValueChange}/> : <div className={styles.add} onClick={buy}/>}
+            { currentBoughtNum > 0 ? <InputNum min={0} onValueChange={onValueChange}/> : <div className={styles.add} onClick={buy}/>}
         </>
     </div>
 }
