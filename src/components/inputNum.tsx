@@ -5,7 +5,7 @@ type Props = {
     min?: number;
     max?: number;
     defaultValue?: number;
-    onValueChange: Function;
+    onValueChange: (value: number) => void;
 };
 export function InputNum({ min = 1, max = 999, defaultValue = 1, onValueChange }: Props) {
     const [inputValue, setInputValue] = useState(defaultValue);
