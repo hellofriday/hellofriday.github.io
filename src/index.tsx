@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider as JotaiProvider } from 'jotai';
+import ScrollToTop from './helper/scrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
         <JotaiProvider>
             <BrowserRouter>
+                <ScrollToTop/>
                 <App />
             </BrowserRouter>
         </JotaiProvider>
