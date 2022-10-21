@@ -45,7 +45,7 @@ export function Food({detail}: Props) {
         if (item) {
             setCurrentBoughtNum(item.num)
         }
-    }, [])
+    }, [detail.id])
 
     const buy = () => {
         setCurrentBoughtNum(1)
