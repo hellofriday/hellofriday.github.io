@@ -23,7 +23,7 @@ const FoodList = () => {
             ))}
             <>
                 {selectedFoodList.length > 0 && (
-                    <div className={styles.btn} onClick={goShoppingCart}>
+                    <div className={styles.orderBtn} onClick={goShoppingCart}>
                         去结账
                     </div>
                 )}

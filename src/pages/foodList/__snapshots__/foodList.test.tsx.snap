@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoodList should show/hide '去结账' button correctly when click food add button or minus button 1`] = `
+<div
+  class="item"
+>
+  <span
+    class=" lazy-load-image-background opacity"
+    style="color: transparent; display: inline-block;"
+  >
+    <img
+      alt="cake"
+      class="img"
+      src="cake.jpg"
+    />
+  </span>
+  <div
+    class="info"
+  >
+    <div
+      class="name"
+    >
+      蛋糕0
+    </div>
+    <div
+      class="price"
+    >
+      <b>
+        ￥
+      </b>
+      <span>
+        10
+      </span>
+    </div>
+  </div>
+  <div
+    class="gap"
+  />
+  <div
+    class="add"
+  />
+</div>
+`;
