@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import FoodList from './pages/foodList/foodList';
 import Order from './pages/order/order';
-import NotFound from './pages/notFound';
+import NotFound from './pages/notFound/notFound';
 
 function App() {
     return (

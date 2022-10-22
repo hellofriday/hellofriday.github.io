@@ -27,7 +27,7 @@ const Order = () => {
                 <OrderItem key={item.id} detail={item} />
             ))}
             <div className={styles.total}>
-                总计: <div className={styles.price}>{`￥${totalPrice()}`}</div>
+                总计: <div className={styles.price} data-testid="totalPrice">{`￥${totalPrice()}`}</div>
             </div>
         </div>
     );
