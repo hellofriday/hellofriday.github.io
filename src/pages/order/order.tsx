@@ -1,7 +1,7 @@
 import styles from './order.module.scss';
 import { useAtom } from 'jotai';
-import { OrderItem } from '../components/orderItem';
-import { selectedFoodListAtom } from './foodList';
+import { OrderItem } from '../../components/orderItem/orderItem';
+import { selectedFoodListAtom } from '../foodList/foodList';
 
 const Order = () => {
     const [selectedFoodList] = useAtom(selectedFoodListAtom);

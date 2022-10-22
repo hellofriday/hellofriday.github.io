@@ -1,11 +1,11 @@
 import styles from './food.module.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { IFood } from '../data/IFood';
-import { InputNum } from './inputNum/inputNum';
+import { IFood } from '../../data/IFood';
+import { InputNum } from '../inputNum/inputNum';
 import { useEffect, useState } from 'react';
-import { selectedFoodListAtom } from '../pages/foodList';
+import { selectedFoodListAtom } from '../../pages/foodList/foodList';
 import { useAtom } from 'jotai';
-import { ISelectedFood } from '../data/ISelectedFood';
+import { ISelectedFood } from '../../data/ISelectedFood';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 type Props = {

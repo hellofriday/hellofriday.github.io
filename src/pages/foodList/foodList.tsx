@@ -1,7 +1,7 @@
 import styles from './foodList.module.scss';
-import { Food } from '../components/food';
-import { createCake } from '../data/AllFood';
-import { ISelectedFood } from '../data/ISelectedFood';
+import { Food } from '../../components/food/food';
+import { createCake } from '../../data/AllFood';
+import { ISelectedFood } from '../../data/ISelectedFood';
 import { atom, useAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
 

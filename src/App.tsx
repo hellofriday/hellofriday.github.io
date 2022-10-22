@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import FoodList from './pages/foodList';
-import Order from './pages/order';
+import FoodList from './pages/foodList/foodList';
+import Order from './pages/order/order';
 import NotFound from './pages/notFound';
 
 function App() {

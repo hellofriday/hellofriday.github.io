@@ -1,6 +1,6 @@
 import styles from './orderItem.module.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { ISelectedFood } from '../data/ISelectedFood';
+import { ISelectedFood } from '../../data/ISelectedFood';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 type Props = {
