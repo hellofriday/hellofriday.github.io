@@ -1,7 +1,7 @@
 import styles from './food.module.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { IFood } from '../data/IFood';
-import { InputNum } from './inputNum';
+import { InputNum } from './inputNum/inputNum';
 import { useEffect, useState } from 'react';
 import { selectedFoodListAtom } from '../pages/foodList';
 import { useAtom } from 'jotai';

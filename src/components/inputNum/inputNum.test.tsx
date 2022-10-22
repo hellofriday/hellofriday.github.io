@@ -4,18 +4,27 @@ import { InputNum } from './inputNum';
 describe("InputNum", () => {
     it('defaultValue should between min and max num', () => {
         const onChange = jest.fn();
-        const t = () => {
-            const { container } = render(<InputNum defaultValue={-1} onValueChange={onChange} />);
+        try {
+            const t = () => {
+                const { container } = render(<InputNum defaultValue={-1} onValueChange={onChange} />);
+                expect(true).toBe(false);
+            }
+        } catch (e: any) {
+            expect(e.message).toBe('Please set valid defaultValue')
         }
-        expect(t).toThrowError()
+
     })
 
     it('min should not great than max', () => {
         const onChange = jest.fn();
-        const t = () => {
-            const { container } = render(<InputNum min={20}  max={1} onValueChange={onChange} />);
+        try {
+            const t = () => {
+                const { container } = render(<InputNum min={20}  max={1} onValueChange={onChange} />);
+                expect(true).toBe(false);
+            }
+        } catch (e: any) {
+            expect(e.message).toBe('Please set valid defaultValue')
         }
-        expect(t).toThrowError()
     })
 
     it('should call onChange correctly when click minus or plus button or change input', () => {
@@ -34,7 +43,7 @@ describe("InputNum", () => {
     it('plus button should disable when current value is max value', () => {
         const onChange = jest.fn();
         const { asFragment } = render(<InputNum max={2} defaultValue={2} onValueChange={onChange}/>);
-        expect(asFragment().lastChild).toMatchSnapshot();
+        expect(asFragment().firstChild).toMatchSnapshot();
     });
 
     it('minus button should disable when current value is min value', () => {

@@ -1,6 +1,5 @@
 import styles from './inputNum.module.scss';
 import {useEffect, useState} from 'react';
-
 type Props = {
     min?: number;
     max?: number;
